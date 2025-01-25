@@ -21,7 +21,7 @@ function AppContent() {
     const location = useLocation();
 
     const renderNavbar = () => {
-        if (location.pathname === '*') {
+        if (location.pathname === '/') {
             return <Navbar2 />;
         }
         return <Navbar />;

@@ -4,7 +4,7 @@
 
 body {
     transition: padding-top 0.3s ease;
-    background-color: #202023;
+    background-color: black;
   }
 
 .fixed-size-image {
@@ -50,4 +50,4 @@ body {
  .section {
   @apply px-4 pt-10 container mx-auto
   min-h-screen
- }  
+ }

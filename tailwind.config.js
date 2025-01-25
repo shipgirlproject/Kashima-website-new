@@ -10,10 +10,11 @@ module.exports = {
         purple: "#591efa",
         darkGray: "#202023",
         white: "#ededed",
-        footerGray: "#606062"
+        footerGray: "#606062",
       },
       screens: {
-        'md2': "866px"
+        'md3': "1866px",
+        'md2': "866px",
       },
     },
   },

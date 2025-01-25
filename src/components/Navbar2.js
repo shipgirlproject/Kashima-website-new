@@ -45,9 +45,6 @@ const Navbar2 = () => {
               About
             </Link>
             <Link to="" className="text-white hover:font-bold">
-              Music Player
-            </Link>
-            <Link to="" className="text-white hover:font-bold">
               Commands
             </Link>
             <Link to="" className="text-white hover:font-bold">
@@ -61,13 +58,13 @@ const Navbar2 = () => {
 
         {/* Login Button */}
         <div className="hidden md2:flex">
-          <button type="button" className="pl-[2rem] pr-[2rem] text-[1rem] text-white hover:text-[#5865f2] bg-[#5865f2] hover:bg-white font-bold rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center outline outline-2 outline-white" >
+          <button type="button" className="pl-[2rem] pr-[2rem] text-[1.1rem] text-white hover:text-[#5865f2] bg-[#5865f2] hover:bg-white font-bold rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center outline outline-2 outline-[#a5abf5] hover:outline-white" >
           <DiscordIcon /> Login with Discord
           </button>
         </div>
       
         <div className="md2:hidden hidden md:flex">
-          <button type="button" className="pl-[2rem] pr-[2rem] text-[1rem] text-white hover:text-[#5865f2] bg-[#5865f2] hover:bg-white font-bold rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center outline outline-2 outline-white" >
+          <button type="button" className="pl-[2rem] pr-[2rem] text-[1.1rem] text-white hover:text-[#5865f2] bg-[#5865f2] hover:bg-white font-bold rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center outline outline-2 outline-[#a5abf5] hover:outline-white" >
           <DiscordIcon /> Login
           </button>
         </div>
@@ -83,9 +80,6 @@ const Navbar2 = () => {
             <div className="flex flex-col items-center gap-6 py-6">
               <Link to="" className="text-white hover:text-gray-400">
                 About
-              </Link>
-              <Link to="" className="text-white hover:text-gray-400">
-                Music Player
               </Link>
               <Link to="" className="text-white hover:text-gray-400">
                 Commands
