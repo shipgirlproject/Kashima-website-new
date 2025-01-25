@@ -30,9 +30,9 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header
+    <div
       className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-sm ${isScrolled ? "bg-darkGray/90 shadow-lg" : "bg-darkGray/100"}`}>
-      <nav className="max-w-7xl mx-auto px-4 lg:px-8 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-4 flex items-center justify-between">
 
         {/* Logo and Menu Links */}
         <div className="flex items-center gap-10">
@@ -43,9 +43,6 @@ const Navbar = () => {
           <div className="hidden md:flex gap-6">
             <Link to="" className="text-white hover:font-bold">
               About
-            </Link>
-            <Link to="" className="text-white hover:font-bold">
-              Music Player
             </Link>
             <Link to="" className="text-white hover:font-bold">
               Commands
@@ -61,13 +58,13 @@ const Navbar = () => {
 
         {/* Login Button */}
         <div className="hidden md2:flex">
-          <button type="button" className="pl-[2rem] pr-[2rem] text-[1rem] text-white hover:text-[#5865f2] bg-[#5865f2] hover:bg-white font-bold rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center outline outline-2 outline-white" >
+          <button type="button" className="pl-[2rem] pr-[2rem] text-[1.1rem] text-white hover:text-[#5865f2] bg-[#5865f2] hover:bg-white font-bold rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center outline outline-2 outline-[#a5abf5] hover:outline-white" >
           <DiscordIcon /> Login with Discord
           </button>
         </div>
       
         <div className="md2:hidden hidden md:flex">
-          <button type="button" className="pl-[2rem] pr-[2rem] text-[1rem] text-white hover:text-[#5865f2] bg-[#5865f2] hover:bg-white font-bold rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center outline outline-2 outline-white" >
+          <button type="button" className="pl-[2rem] pr-[2rem] text-[1.1rem] text-white hover:text-[#5865f2] bg-[#5865f2] hover:bg-white font-bold rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center outline outline-2 outline-[#a5abf5] hover:outline-white" >
           <DiscordIcon /> Login
           </button>
         </div>
@@ -83,9 +80,6 @@ const Navbar = () => {
             <div className="flex flex-col items-center gap-6 py-6">
               <Link to="" className="text-white hover:text-gray-400">
                 About
-              </Link>
-              <Link to="" className="text-white hover:text-gray-400">
-                Music Player
               </Link>
               <Link to="" className="text-white hover:text-gray-400">
                 Commands
@@ -104,8 +98,8 @@ const Navbar = () => {
             </div>
           </div>
         )}
-      </nav>
-    </header>
+      </div>
+    </div>
   );
 };
 

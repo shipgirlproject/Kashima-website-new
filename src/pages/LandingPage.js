@@ -1,6 +1,11 @@
+import Hero from "../components/Hero";
+import Footer from "../components/Footer";
+
 function LandingPage () {
     return (
-      <div className="bg-black">
+      <div>
+        <Hero/>
+        <Footer />
       </div>
       );
   }
