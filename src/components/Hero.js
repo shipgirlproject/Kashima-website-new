@@ -5,11 +5,14 @@ import { DiscordIcon, DashboardIcon, MusicIcon } from "./Icons";
 
 const Hero = () => {
     return (
-        <div className="relative min-h-screen bg-black">
-            <StarrySky />
+        <div className="relative min-h-screen overflow-hidden">
+            {/* StarrySky background fills the screen */}
+            <div className="absolute inset-0 z-0">
+                <StarrySky />
+            </div>
 
-            <section>
-                <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <section className="relative z-10">
+                <div className="pt-[4rem] px-4 mx-auto max-w-[150rem] sm:px-6 lg:px-8">
                     <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2 text-white">
                         <div>
                             <h1 className="text-6xl md:text-7xl font-bold">Kashima</h1>
@@ -38,7 +41,7 @@ const Hero = () => {
                             </div>
                         </div>
 
-
+                        {/* Right Section (Image) */}
                         <div>
                             <img className="w-full rounded-3xl" src="https://i.imgur.com/4nXArVT.png" alt="Kashima Image" />
                         </div>
@@ -46,7 +49,7 @@ const Hero = () => {
                 </div>
             </section>
         </div>
-    )
+    );
 }
 
 export default Hero;

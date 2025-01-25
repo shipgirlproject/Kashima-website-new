@@ -4,45 +4,50 @@ const StarrySky = () => {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
-    const generatedStars = Array.from({ length: 500 }).map(() => {
-      const size = Math.random() * 0.1 + 0.17;
-      const left = Math.random() * 100;
-      const top = Math.random() * 100;
-      
-      return {
-        size,
-        left,
-        top,
-        opacity: Math.random() * 0.4 + 0.3,
-      };
-    });
+    const generateStars = () => {
+      const generatedStars = Array.from({ length: 500 }).map(() => {
+        const size = Math.random() * 0.15 + 0.2; 
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+        const opacity = Math.random() * 0.4 + 0.3;
 
-    setStars(generatedStars);
+        return {
+          size,
+          left,
+          top,
+          opacity,
+        };
+      });
+
+      setStars(generatedStars);
+    };
+
+    generateStars(); 
 
     const intervalId = setInterval(() => {
       setStars((prevStars) =>
         prevStars.map((star) => ({
           ...star,
-          opacity: Math.random() * 1, 
+          opacity: Math.random() * 0.6 + 0.4,
         }))
       );
     }, 1000);
 
-    return () => clearInterval(intervalId);
+    return () => clearInterval(intervalId);  
   }, []);
 
   return (
     <div
-      className="relative w-full h-screen bg-gradient-to-b from-black to-[#000033] overflow-hidden"
-      style={{ perspective: '120rem' }}
+      className="absolute inset-0 bg-gradient-to-b from-black to-[#000033] overflow-hidden z-0"
+      style={{ position: 'absolute', width: '100%', height: '100%' }}
     >
       {stars.map((star, index) => (
         <div
           key={index}
           className="absolute rounded-full bg-white"
           style={{
-            left: `${star.left}vw`,
-            top: `${star.top}vh`,
+            left: `${star.left}%`,   
+            top: `${star.top}%`,    
             width: `${star.size}rem`,
             height: `${star.size}rem`,
             opacity: star.opacity,
