@@ -1,4 +1,4 @@
-# Kashima-webplayer
+# Kashima-website
 <p align="center">
   <img src="https://i.imgur.com/MFvDn6S.png" />
 </p>
