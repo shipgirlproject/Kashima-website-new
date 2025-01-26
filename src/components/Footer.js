@@ -35,7 +35,7 @@ const Footer = () => {
         {/* Third Column */}
         <div>
           <ul>
-            <li className="text-white mb-3">Community</li>
+            <li className="text-white mb-3">Follow us</li>
             <li><Link className="font-medium text-white hover:text-gray-500" to="https://discord.gg/FVqbtGu" rel="noopener noreferrer" target="_blank">Discord</Link></li>
             <li><Link className="font-medium text-white hover:text-gray-500" to="https://github.com/shipgirlproject" target="_blank">GitHub</Link></li>
           </ul>
