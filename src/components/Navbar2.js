@@ -33,7 +33,7 @@ const Navbar2 = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-sm ${isScrolled ? "bg-darkGray/7" : "bg-darkGray/7"}`}>
+      className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-sm ${isScrolled ? "bg-darkGray/60 shadow-lg" : "bg-darkGray/7"}`}>
       <nav className="max-w-7xl mx-auto px-4 lg:px-8 py-4 flex items-center justify-between">
 
         {/* Logo and Menu Links */}
@@ -106,7 +106,7 @@ const Navbar2 = () => {
 
         {/* Mobile View Hamburger Menu */}
         {isMobileMenuOpen && (
-          <div className="absolute top-[5rem] left-0 w-full bg-darkGray/30 backdrop-blur-sm md:hidden">
+          <div className="absolute top-[5.5rem] left-0 w-full bg-darkGray/30 backdrop-blur-sm md:hidden">
             <div className="flex flex-col items-center gap-6 py-6">
               <Link to="" className="text-white hover:text-gray-400">
                 About
