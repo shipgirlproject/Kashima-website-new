@@ -10,7 +10,7 @@ const Footer = () => {
                         <a className="flex items-center justify-center font-medium text-gray-500 title-font md:justify-start">
                             <img src="https://i.imgur.com/VAYBowN.png" width={100} height={100} />
                         </a>
-                        <p className="mt-2 text-sm text-white">Your multipurpose shipgirl bot that can do a lot of things, HQ Music, Starboard, Suggestions Logging and more!</p>
+                        <p className="mt-2 text-sm text-white">The first feature-rich shipgirl bot that doesn't compromise over quality in anything I do. What are you waiting for? Invite me now ❤️</p>
                     </div>
                     <div className="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
                         <div className="w-full px-4 lg:w-1/4 md:w-1/2">
