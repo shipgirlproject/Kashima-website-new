@@ -106,7 +106,7 @@ const Navbar2 = () => {
 
         {/* Mobile View Hamburger Menu */}
         {isMobileMenuOpen && (
-          <div className="absolute top-[5rem] left-0 w-full bg-darkGray/90 backdrop-blur-sm md:hidden">
+          <div className="absolute top-[5.5rem] left-0 w-full bg-darkGray/90 backdrop-blur-sm md:hidden">
             <div className="flex flex-col items-center gap-6 py-6">
               <Link to="" className="text-white hover:text-gray-400">
                 About
