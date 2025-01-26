@@ -4,11 +4,10 @@ const Footer = () => {
     return (
         <div className="flex items-end h-100 w-full">
             <footer className="w-full text-gray-500 bg-darkGray body-font pt-[1rem]">
-                <div
-                    className="container flex flex-col flex-wrap px-5 py-5 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
+                <div className="container flex flex-col flex-wrap px-5 py-5 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
                     <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
                         <a className="flex items-center justify-center font-medium text-gray-500 title-font md:justify-start">
-                            <img src="https://i.imgur.com/VAYBowN.png" width={100} height={100} />
+                            <img src="https://i.imgur.com/VAYBowN.png" width={100} height={100} /> <span className="pl-[1rem] text-4xl text-white">Kashima</span>
                         </a>
                         <p className="mt-2 text-sm text-white">The first feature-rich shipgirl bot that doesn't compromise over quality in anything I do. What are you waiting for? Invite me now ❤️</p>
                     </div>

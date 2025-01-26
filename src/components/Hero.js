@@ -5,14 +5,13 @@ import { DiscordIcon, DashboardIcon, MusicIcon } from "./Icons";
 
 const Hero = () => {
     return (
-        <div className="relative min-h-screen overflow-hidden">
-            {/* StarrySky background fills the screen */}
+        <div className="relative overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <StarrySky />
             </div>
 
             <section className="relative z-10">
-                <div className="pt-[4rem] px-4 mx-auto max-w-[150rem] sm:px-6 lg:px-8">
+                <div className="pt-[4rem] px-4 mx-auto max-w-[108rem] sm:px-6 lg:px-8">
                     <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2 text-white">
                         <div>
                             <h1 className="text-6xl md:text-7xl font-bold"><span className="underline decoration-2 text-[#dc9a9c]">Command Your Fleet</span> with the <span className="text-[#73fdfe]">Ultimate Shipgirl Bot!</span></h1>
