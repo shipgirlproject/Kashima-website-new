@@ -5,7 +5,7 @@ import { DiscordIcon, DashboardIcon, MusicIcon } from "./Icons";
 
 const Hero = () => {
     return (
-        <div className="relative max-h-screen overflow-hidden">
+        <div className="relative overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <StarrySky />
             </div>
