@@ -9,13 +9,13 @@ const Footer = () => {
         {/* First Column */}
         <div>
           <ul>
-            <li className="text-white mb-3">Get started</li>
+            <li className="text-white font-bold mb-3">Get started</li>
             <li><Link className="font-medium text-white hover:text-gray-500" to="">Invite Kashima</Link></li>
             <li><Link className="font-medium text-white hover:text-gray-500" to="">Premium</Link></li>
             <li><Link className="font-medium text-white hover:text-gray-500" to="">Dashboard</Link></li>
           </ul>
           <ul className="mt-8">
-            <li className="text-white mb-3">Kashima</li>
+            <li className="text-white font-bold mb-3">Kashima</li>
             <li><Link className="font-medium text-white hover:text-gray-500 current" to="">Documentation</Link></li>
             <li><Link className="font-medium text-white hover:text-gray-500" to="">Music Player</Link></li>
             <li><Link className="font-medium text-white hover:text-gray-500" to="">Dashboard</Link></li>
@@ -25,7 +25,7 @@ const Footer = () => {
         {/* Second Column */}
         <div className='pl-[2rem] sm:pl-16 md:pl-1'>
           <ul>
-            <li className="text-white mb-3">More Links</li>
+            <li className="text-white font-bold mb-3">More Links</li>
             <li><Link className="font-medium text-white hover:text-gray-500" to="" target="_blank">Developers</Link></li>
             <li><Link className="font-medium text-white hover:text-gray-500" to="">About</Link></li>
             <li><Link className="font-medium text-white hover:text-gray-500" to="">FAQ</Link></li>
@@ -35,7 +35,7 @@ const Footer = () => {
         {/* Third Column */}
         <div>
           <ul>
-            <li className="text-white mb-3">Follow us</li>
+            <li className="text-white font-bold mb-3">Follow us</li>
             <li><Link className="font-medium text-white hover:text-gray-500" to="https://discord.gg/FVqbtGu" rel="noopener noreferrer" target="_blank">Discord</Link></li>
             <li><Link className="font-medium text-white hover:text-gray-500" to="https://github.com/shipgirlproject" target="_blank">GitHub</Link></li>
           </ul>
