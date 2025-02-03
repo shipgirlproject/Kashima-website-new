@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Configuration from "../components/Configuration";
 
 function Dashboard() {
+    const [activeSection, setActiveSection] = useState("configuration");
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -16,13 +18,17 @@ function Dashboard() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    const sections = {
+        configuration: "Config Content"
+    }
+
     return (
         <div>
-            <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-darkGray dark:border-darkGray shadow-md">
+            <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                 <div className="px-3 py-3 lg:px-5 lg:pl-3 flex justify-between items-center">
                     <button 
                         type="button" 
-                        className="p-2 text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                        className="p-2 text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                     >
                         <span className="sr-only">Open sidebar</span>
@@ -37,14 +43,14 @@ function Dashboard() {
                     <div className="relative">
                         <button
                             type="button"
-                            className="flex text-sm bg-darkGray rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                            className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         >
                             <span className="sr-only">Open user menu</span>
                             <img className="w-8 h-8 rounded-full" src="https://i.imgur.com/pgx29kK.jpeg" alt="user photo" />
                         </button>
                         {isDropdownOpen && (
-                            <div className="absolute right-0 z-50 mt-2 w-44 bg-white divide-y divide-gray-100 rounded-sm shadow dark:bg-gray-600 dark:divide-gray-600">
+                            <div className="absolute right-0 z-50 mt-2 w-44 bg-white divide-y divide-gray-100 rounded-sm shadow dark:bg-gray-700 dark:divide-gray-600">
                                 <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                                     <p>elikajiwara</p>
                                 </div>
@@ -57,19 +63,19 @@ function Dashboard() {
                 </div>
             </nav>
 
-            <aside className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-darkGray dark:border-darkGray shadow-md`}>
+            <aside className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}>
                 <div className="h-full px-3 pb-4 text-white overflow-y-auto">
                     <ul className="space-y-2 font-medium">
-                        <li><Link to="/dashboard" className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-600">General Settings</Link></li>
-                        <li><Link to="/kanban" className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-600">Welcomer Settings</Link></li>
-                        <li><Link to="/kanban" className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-600">Logs</Link></li>
-                        <li><Link to="/inbox" className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-600">Suggestion Settings</Link></li>
-                        <li><Link to="/inbox" className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-600">Starboard Settings</Link></li>
-                        <li><Link to="/inbox" className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-600">Music Settings</Link></li>
-                        <li><Link to="/inbox" className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-600">Music Controller</Link></li>
+                        <li><Link to="general-settings" className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700">Configure Kashima</Link></li>
+                        <li><Link to="general-settings" className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700">Music Controller</Link></li>
                     </ul>
                 </div>
             </aside>
+
+            {/* Content Area for Configuration */}
+            <main className="p-4 sm:ml-64 mt-15">
+                <Configuration />
+            </main>
         </div>
     );
 }

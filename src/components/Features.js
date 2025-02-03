@@ -21,9 +21,9 @@ const Features = () => {
 
                     {/* Text Content */}
                     <div className="mt-12 md:mt-0 md:ml-8 text-center md:text-left">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Web-Based Music Player</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Web-Based Music Player Control</h2>
                         <p className="text-gray-300 mb-6">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Easily manage your music playback from the web. Play, pause, skip, and control the queue in real time all from your browser. Note: Music streaming requires you to be in a voice channel.
                         </p>
                         <Link to="/music-player" className="inline-block text-primary-400 hover:text-primary-500 underline transition-colors"> Try it out → </Link>
                     </div>
@@ -43,7 +43,7 @@ const Features = () => {
                     <div className="mb-12 md:mt-0 md:ml-8 text-center md:text-left">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">Dashboard</h2>
                         <p className="text-gray-300 mb-6">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Customize Kashima effortlessly with our web-based dashboard. Adjust channel logs, and other settings all in one place.
                         </p>
                         <Link to="/music-player" className="inline-block text-primary-400 hover:text-primary-500 underline transition-colors"> Dashboard → </Link>
                     </div>
