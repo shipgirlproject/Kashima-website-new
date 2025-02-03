@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage';
 import PagenotFound from './pages/PagenotFound';
 import Navbar from './components/Navbar';
 import Navbar2 from './components/Navbar2';
+import Dashboard from './pages/Dashboard';
 
 
 function ScrollToTop() {
@@ -23,8 +24,11 @@ function AppContent() {
     const renderNavbar = () => {
         if (location.pathname === '/') {
             return <Navbar2 />;
+        } else if (location.pathname === '/dashboard') {
+            return
+        } else {
+            return <Navbar />;
         }
-        return <Navbar />;
     };
 
     return (
@@ -38,6 +42,7 @@ function AppContent() {
             <div className="pages">
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
+                    <Route path="/dashboard" element={<Dashboard/>}/>
                     <Route path="*" element={<PagenotFound />} />
                 </Routes>
             </div>
