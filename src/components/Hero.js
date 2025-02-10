@@ -24,7 +24,7 @@ const Hero = () => {
                                     </button>
                                 </Link>
 
-                                <Link to="">
+                                <Link to="/dashboard">
                                     <button type="button" className="pl-[1rem] pr-[1rem] text-[1.2rem] text-white hover:text-white hover:bg-[#008cff] font-bold rounded-3xl text-sm px-5 py-2.5 text-center inline-flex items-center outline outline-2 outline-white hover:shadow-3xl hover:shadow-[#008cff] hover:outline-[#008cff] hover:shadow-[0_0_10px_4px_#008cff] transition-all duration-300">
                                         <DashboardIcon /> <p className="pl-[.5rem]">Dashboard</p>
                                     </button>
