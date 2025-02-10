@@ -1,33 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import Picker from "@emoji-mart/react";
+import { useSettings } from "../context/SettingsContext";
+import { useEmoji } from "../context/EmojiContext";
 
 function Configuration() {
-  const [settings, setSettings] = useState({
-    afk: false,
-    autoMod: true,
-    welcomeMessage: "Welcome to the server!",
-    welcomeChannel: "general",
-    moderationChannel: "general",
-    guildChannel: "general",
-    messageChannel: "general",
-    memberChannel: "general",
-    suggestionChannel: "general",
-    starboardChannel: "general",
-    starboardReactionCount: "3",
-  });
-
-  const handleToggle = (key) => {
-    setSettings((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
-
-  const handleSelectChange = (key, value) => {
-    setSettings((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
-  };
+  const { emojis, activeEmojiPicker, handleEmojiSelect, handleEmojiPickerToggle, starboardPickerRef, suggestionNonPickerRef, suggestionApprovePickerRef } = useEmoji();
+  const { settings, handleToggle, handleSelectChange } = useSettings();
 
   return (
     <div className="p-6 text-gray-900 dark:text-white">
@@ -47,8 +25,8 @@ function Configuration() {
             <input
               type="checkbox"
               className="sr-only peer"
-              checked={settings.autoMod}
-              onChange={() => handleToggle("autoMod")}
+              checked={settings.afk}
+              onChange={() => handleToggle("afk")}
             />
             <div className="w-11 h-6 bg-[#2b2d31] peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full after:absolute after:top-1 after:left-1 after:bg-white after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#4752c4]"></div>
           </label>
@@ -158,12 +136,53 @@ function Configuration() {
 
           <select
             value={settings.suggestionChannel}
-            onChange={(e) => handleSelectChange("suggestionChannel", e.target.value)}
-            className="mt-[1rem] w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c]">
+            onChange={(e) => setSettings({ ...settings, suggestionChannel: e.target.value })}
+            className="mt-[1rem] w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c]"
+          >
             <option>general</option>
             <option>welcome</option>
             <option>announcements</option>
           </select>
+
+          {/* Two-column layout for emoji selectors */}
+          <label className="block text-sm font-medium mt-3">Reaction Emojis</label>
+          <div className="grid grid-cols-2 gap-4 mt-2">
+
+            {/* Approve Emoji Picker */}
+            <div className="relative" ref={suggestionApprovePickerRef}>
+              <button
+                onClick={() => handleEmojiPickerToggle("suggestionEmojiApprove")}
+                className="w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c] flex items-center justify-between"
+              >
+                <span>{emojis.suggestionEmojiApprove}</span>
+                <span className="text-gray-400">🩶</span>
+              </button>
+
+              {activeEmojiPicker === "suggestionEmojiApprove" && (
+                <div className="absolute z-50 mt-[-30rem] ml-[-2.5rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
+                  <Picker onEmojiSelect={(emoji) => handleEmojiSelect("suggestionEmojiApprove", emoji)} theme="dark" />
+                </div>
+              )}
+            </div>
+
+            {/* Reject Emoji Picker */}
+            <div className="relative" ref={suggestionNonPickerRef}>
+              <button
+                onClick={() => handleEmojiPickerToggle("suggestionEmojiNo")}
+                className="w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c] flex items-center justify-between"
+              >
+                <span>{emojis.suggestionEmojiNo}</span>
+                <span className="text-gray-400">🩶</span>
+              </button>
+
+              {activeEmojiPicker === "suggestionEmojiNo" && (
+                <div className="absolute z-50 mt-[-30rem] ml-[-13.5rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
+                  <Picker onEmojiSelect={(emoji) => handleEmojiSelect("suggestionEmojiNo", emoji)} theme="dark" />
+                </div>
+              )}
+            </div>
+
+          </div>
         </div>
       </div>
 
@@ -179,22 +198,35 @@ function Configuration() {
 
           <select
             value={settings.starboardChannel}
-            onChange={(e) => handleSelectChange("starboardChannel", e.target.value)}
-            className="mt-[1rem] w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c]">
+            onChange={(e) => setSettings({ ...settings, starboardChannel: e.target.value })}
+            className="mt-[1rem] w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c]"
+          >
             <option>general</option>
             <option>welcome</option>
             <option>announcements</option>
           </select>
 
-          <input
-            type="text"
-            value={settings.starboardReactionCount}
-            onChange={(e) => handleSelectChange("starboardReactionCount", e.target.value)}
-            className="mt-[1rem] w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c]" />
+          <label className="block text-sm font-medium mt-3">Reaction Emoji</label>
+          <div className="relative" ref={starboardPickerRef}>
+            <button
+              onClick={() => handleEmojiPickerToggle("starboardEmoji")}
+              className="mt-[1rem] w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c] flex items-center justify-between"
+            >
+              <span>{emojis.starboardEmoji}</span>
+              <span className="text-gray-400">🩶</span>
+            </button>
+
+            {activeEmojiPicker === "starboardEmoji" && (
+              <div className="absolute z-50 mt-[-30rem] ml-[-2.5rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
+                <Picker onEmojiSelect={(emoji) => handleEmojiSelect("starboardEmoji", emoji)} theme="dark" />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
 }
+
 
 export default Configuration;
