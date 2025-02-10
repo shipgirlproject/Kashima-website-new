@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { SettingsProvider } from "./context/SettingsContext";
+import { EmojiProvider } from './context/EmojiContext';
 
 import LandingPage from './pages/LandingPage';
 import PagenotFound from './pages/PagenotFound';
@@ -42,7 +44,7 @@ function AppContent() {
             <div className="pages">
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
-                    <Route path="/dashboard" element={<Dashboard/>}/>
+                    <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="*" element={<PagenotFound />} />
                 </Routes>
             </div>
@@ -53,7 +55,11 @@ function AppContent() {
 function App() {
     return (
         <BrowserRouter>
-            <AppContent />
+            <SettingsProvider>
+                <EmojiProvider>
+                    <AppContent />
+                </EmojiProvider>
+            </SettingsProvider>
         </BrowserRouter>
     );
 }
