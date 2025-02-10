@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Configuration from "../components/Configuration";
+import { GearIcon, MusicIcon } from "../components/Icons";
 
 function Dashboard() {
     const [activeSection, setActiveSection] = useState("configuration");
@@ -24,11 +25,11 @@ function Dashboard() {
 
     return (
         <div>
-            <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+            <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-[#1e1f22] dark:border-[#1e1f22] shadow-md">
                 <div className="px-3 py-3 lg:px-5 lg:pl-3 flex justify-between items-center">
                     <button 
                         type="button" 
-                        className="p-2 text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        className="p-2 text-[gray-500] rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                     >
                         <span className="sr-only">Open sidebar</span>
@@ -43,19 +44,19 @@ function Dashboard() {
                     <div className="relative">
                         <button
                             type="button"
-                            className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                            className="flex text-sm bg-[#1e1f22] rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         >
                             <span className="sr-only">Open user menu</span>
                             <img className="w-8 h-8 rounded-full" src="https://i.imgur.com/pgx29kK.jpeg" alt="user photo" />
                         </button>
                         {isDropdownOpen && (
-                            <div className="absolute right-0 z-50 mt-2 w-44 bg-white divide-y divide-gray-100 rounded-sm shadow dark:bg-gray-700 dark:divide-gray-600">
+                            <div className="absolute right-0 z-50 mt-2 w-44 bg-white divide-y divide-gray-100 rounded-sm shadow dark:bg-[#1e1f22] dark:divide-[#3e4147]">
                                 <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                                     <p>elikajiwara</p>
                                 </div>
                                 <ul className="py-1 text-sm text-gray-700 dark:text-gray-200">
-                                    <li><Link to="/dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">Logout</Link></li>
+                                    <li><Link to="/dashboard" className="block px-4 py-2 hover:bg-[#35373c] hover:font-semibold">Logout</Link></li>
                                 </ul>
                             </div>
                         )}
@@ -63,17 +64,19 @@ function Dashboard() {
                 </div>
             </nav>
 
-            <aside className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}>
+            <aside className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-[#1e1f22] dark:border-[#1e1f22] shadow-md`}>
                 <div className="h-full px-3 pb-4 text-white overflow-y-auto">
                     <ul className="space-y-2 font-medium">
-                        <li><Link to="general-settings" className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700">Configure Kashima</Link></li>
-                        <li><Link to="general-settings" className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700">Music Controller</Link></li>
+                        <li><Link to="general-settings" className="text-[#b5bac1] hover:text-white flex items-center p-2 hover:bg-[#35373c] rounded-md hover:font-semibold">
+                        <GearIcon/> <p className="pl-2">Settings</p></Link> </li>
+                        <li><Link to="general-settings" className="text-[#b5bac1] hover:text-white flex items-center p-2 hover:bg-[#35373c] rounded-md hover:font-semibold">
+                        <MusicIcon /> <p className="pl-2">Music Dashboard</p> </Link> </li>
                     </ul>
                 </div>
             </aside>
 
             {/* Content Area for Configuration */}
-            <main className="p-4 sm:ml-64 mt-15">
+            <main className="bg-[#313338] p-4 sm:ml-64 mt-15">
                 <Configuration />
             </main>
         </div>
