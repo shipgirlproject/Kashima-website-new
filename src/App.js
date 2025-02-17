@@ -8,7 +8,7 @@ import PagenotFound from './pages/PagenotFound';
 import Navbar from './components/Navbar';
 import Navbar2 from './components/Navbar2';
 import Dashboard from './pages/Dashboard';
-
+import Music from './components/Music';
 
 function ScrollToTop() {
     const location = useLocation();
@@ -26,7 +26,7 @@ function AppContent() {
     const renderNavbar = () => {
         if (location.pathname === '/') {
             return <Navbar2 />;
-        } else if (location.pathname === '/dashboard') {
+        } else if (location.pathname === '/dashboard' || '/music') {
             return
         } else {
             return <Navbar />;
@@ -45,6 +45,7 @@ function AppContent() {
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/music" element={<Music />} />
                     <Route path="*" element={<PagenotFound />} />
                 </Routes>
             </div>
