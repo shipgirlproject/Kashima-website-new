@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MusicCompact from './MusicCompact'
 import {
   Play,
   Pause,
@@ -15,6 +16,10 @@ export default function MusicPlayer() {
 
   return (
     <>
+      {/* PC View */}
+      <div className="hidden md:flex"><MusicCompact />
+
+      </div>
       {/* Mobile View */}
       <div className="md:hidden">
         <div className="bg-black text-white flex flex-col justify-between">
