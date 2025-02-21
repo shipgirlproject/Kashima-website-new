@@ -67,9 +67,9 @@ function Dashboard() {
             <aside className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-[#1e1f22] dark:border-[#1e1f22] shadow-md`}>
                 <div className="h-full px-3 pb-4 text-white overflow-y-auto">
                     <ul className="space-y-2 font-medium">
-                        <li><Link to="general-settings" className="text-[#b5bac1] hover:text-white flex items-center p-2 hover:bg-[#35373c] rounded-md hover:font-semibold">
+                        <li><Link to="" className="text-[#b5bac1] hover:text-white flex items-center p-2 hover:bg-[#35373c] rounded-md hover:font-semibold">
                         <GearIcon/> <p className="pl-2">Settings</p></Link> </li>
-                        <li><Link to="general-settings" className="text-[#b5bac1] hover:text-white flex items-center p-2 hover:bg-[#35373c] rounded-md hover:font-semibold">
+                        <li><Link to="/music" className="text-[#b5bac1] hover:text-white flex items-center p-2 hover:bg-[#35373c] rounded-md hover:font-semibold">
                         <MusicIcon /> <p className="pl-2">Music Dashboard</p> </Link> </li>
                     </ul>
                 </div>
