@@ -185,7 +185,7 @@ const Configuration: React.FC = () => {
               </button>
 
               {activeEmojiPicker === "suggestionEmojiNo" && (
-                <div ref={suggestionNonPickerRef} className="absolute z-50 mt-[-30rem] ml-[-13.5rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
+                <div ref={suggestionNonPickerRef} className="absolute z-50 mt-[-30rem] ml-[-12rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
                   <Picker onEmojiSelect={(emoji: { native: string }) => handleEmojiSelect("suggestionEmojiNo", emoji)} theme="dark" />
                 </div>
               )}
@@ -225,7 +225,7 @@ const Configuration: React.FC = () => {
             </button>
 
             {activeEmojiPicker === "starboardEmoji" && (
-              <div ref={starboardPickerRef} className="absolute z-50 mt-[-30rem] ml-[-8rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
+              <div ref={starboardPickerRef} className="absolute z-50 mt-[-30rem] ml-[-2.5rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
                 <Picker onEmojiSelect={(emoji: { native: string }) => handleEmojiSelect("starboardEmoji", emoji)} theme="dark" />
               </div>
             )}
