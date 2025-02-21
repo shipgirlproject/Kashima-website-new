@@ -1,10 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Picker from "@emoji-mart/react";
 import { useSettings } from "../context/SettingsContext";
 import { useEmoji } from "../context/EmojiContext";
 
-function Configuration() {
-  const { emojis, activeEmojiPicker, handleEmojiSelect, handleEmojiPickerToggle, starboardPickerRef, suggestionNonPickerRef, suggestionApprovePickerRef } = useEmoji();
+const Configuration: React.FC = () => {
+  const {
+    emojis,
+    activeEmojiPicker,
+    handleEmojiSelect,
+    handleEmojiPickerToggle,
+    starboardPickerRef,
+    suggestionNonPickerRef,
+    suggestionApprovePickerRef
+  } = useEmoji();
+
   const { settings, handleToggle, handleSelectChange } = useSettings();
 
   return (
@@ -42,11 +51,11 @@ function Configuration() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="p-4 bg-[#1e1f22] rounded-lg">
           <label className="block text-sm font-medium mb-1">Welcome Message</label>
-
           <select
             value={settings.welcomeChannel}
             onChange={(e) => handleSelectChange("welcomeChannel", e.target.value)}
-            className="mt-[1rem] w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c]">
+            className="mt-[1rem] w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c]"
+          >
             <option>general</option>
             <option>welcome</option>
             <option>announcements</option>
@@ -56,7 +65,8 @@ function Configuration() {
             type="text"
             value={settings.welcomeMessage}
             onChange={(e) => handleSelectChange("welcomeMessage", e.target.value)}
-            className="mt-[1rem] w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c]" />
+            className="mt-[1rem] w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c]"
+          />
         </div>
       </div>
 
@@ -133,10 +143,9 @@ function Configuration() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="p-4 bg-[#1e1f22] rounded-lg">
           <label className="block text-sm font-medium mb-1">Suggestion Channel</label>
-
           <select
             value={settings.suggestionChannel}
-            onChange={(e) => setSettings({ ...settings, suggestionChannel: e.target.value })}
+            onChange={(e) => handleSelectChange("suggestionChannel", e.target.value)}
             className="mt-[1rem] w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c]"
           >
             <option>general</option>
@@ -144,7 +153,7 @@ function Configuration() {
             <option>announcements</option>
           </select>
 
-          {/* Two-column layout for emoji selectors */}
+          {/* Emoji Selectors */}
           <label className="block text-sm font-medium mt-3">Reaction Emojis</label>
           <div className="grid grid-cols-2 gap-4 mt-2">
 
@@ -159,8 +168,8 @@ function Configuration() {
               </button>
 
               {activeEmojiPicker === "suggestionEmojiApprove" && (
-                <div className="absolute z-50 mt-[-30rem] ml-[-2.5rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
-                  <Picker onEmojiSelect={(emoji) => handleEmojiSelect("suggestionEmojiApprove", emoji)} theme="dark" />
+                <div ref={suggestionApprovePickerRef} className="absolute z-50 mt-[-30rem] ml-[-2.5rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
+                  <Picker onEmojiSelect={(emoji: { native: string }) => handleEmojiSelect("suggestionEmojiApprove", emoji)} theme="dark" />
                 </div>
               )}
             </div>
@@ -176,16 +185,15 @@ function Configuration() {
               </button>
 
               {activeEmojiPicker === "suggestionEmojiNo" && (
-                <div className="absolute z-50 mt-[-30rem] ml-[-13.5rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
-                  <Picker onEmojiSelect={(emoji) => handleEmojiSelect("suggestionEmojiNo", emoji)} theme="dark" />
+                <div ref={suggestionNonPickerRef} className="absolute z-50 mt-[-30rem] ml-[-12rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
+                  <Picker onEmojiSelect={(emoji: { native: string }) => handleEmojiSelect("suggestionEmojiNo", emoji)} theme="dark" />
                 </div>
               )}
             </div>
-
           </div>
         </div>
-      </div>
 
+      </div>
       {/* Starboard Settings */}
       <h2 className="text-xl font-semibold mt-8 mb-4">Starboard Settings</h2>
       <div className="relative w-full mb-12">
@@ -198,7 +206,7 @@ function Configuration() {
 
           <select
             value={settings.starboardChannel}
-            onChange={(e) => setSettings({ ...settings, starboardChannel: e.target.value })}
+            onChange={(e) => handleSelectChange("starboardChannel", e.target.value)}
             className="mt-[1rem] w-full p-2 bg-[#2b2d31] rounded-lg text-white hover:bg-[#35373c]"
           >
             <option>general</option>
@@ -217,8 +225,8 @@ function Configuration() {
             </button>
 
             {activeEmojiPicker === "starboardEmoji" && (
-              <div className="absolute z-50 mt-[-30rem] ml-[-2.5rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
-                <Picker onEmojiSelect={(emoji) => handleEmojiSelect("starboardEmoji", emoji)} theme="dark" />
+              <div ref={starboardPickerRef} className="absolute z-50 mt-[-30rem] ml-[-2.5rem] bg-[#1e1f22] shadow-lg rounded-lg p-2">
+                <Picker onEmojiSelect={(emoji: { native: string }) => handleEmojiSelect("starboardEmoji", emoji)} theme="dark" />
               </div>
             )}
           </div>
@@ -227,6 +235,5 @@ function Configuration() {
     </div>
   );
 }
-
 
 export default Configuration;

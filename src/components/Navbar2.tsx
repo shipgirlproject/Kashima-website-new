@@ -73,7 +73,7 @@ const Navbar2 = () => {
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden absolute right-[4rem]">
-          <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="https://i.imgur.com/pgx29kK.jpeg" alt="avatar" onClick={() => { setIsDropdownOpen(!isDropdownOpen);setIsMobileMenuOpen(false);}}/>
+          <img className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="https://i.imgur.com/pgx29kK.jpeg" alt="avatar" onClick={() => { setIsDropdownOpen(!isDropdownOpen);setIsMobileMenuOpen(false);}}/>
 
           {/* Dropdown Menu */}
           {isDropdownOpen && (

@@ -26,8 +26,8 @@ function AppContent() {
     const renderNavbar = () => {
         if (location.pathname === '/') {
             return <Navbar2 />;
-        } else if (location.pathname === '/dashboard' || '/music') {
-            return
+        } else if (location.pathname === '/dashboard' || location.pathname === '/music') {
+            return null;
         } else {
             return <Navbar />;
         }
